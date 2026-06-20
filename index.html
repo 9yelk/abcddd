@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+            background-color: #f3e8ff; /* pastel lavender */
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+            image-rendering: pixelated;
+        }
+
+        .gift-wrap {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #c4b5fd; /* pastel purple */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: all 1.5s ease-in-out;
+            flex-direction: column;
+        }
+
+        .ribbon {
+            position: absolute;
+            width: 100%;
+            height: 50px;
+            background: repeating-linear-gradient(
+                90deg,
+                #ddd6fe 0px, #ddd6fe 10px,
+                #a78bfa 10px, #a78bfa 20px
+            );
+            top: 50%;
+            transform: translateY(-50%);
+            image-rendering: pixelated;
+        }
+
+        .bow {
+            position: absolute;
+            width: 600px;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+        }
+
+        .container {
+            display: none;
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #7c3aed;
+            animation: bounce 1.5s infinite;
+        }
+
+        p {
+            max-width: 900px;
+            margin: 10px auto;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #5b21b6;
+            white-space: pre-line;
+        }
+
+        .ps-note {
+            margin-top: 20px;
+            padding: 15px;
+            background: #ddd6fe;
+            border: 2px dashed #7c3aed;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            color: #4c1d95;
+            display: inline-block;
+            max-width: 90%;
+            white-space: pre-line;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .cake {
+            width: 90vw;
+            max-width: 900px;
+            height: auto;
+            margin-top: 20px;
+            image-rendering: pixelated;
+        }
+
+        .btn {
+            background-color: #8b5cf6;
+            border: 3px solid #7c3aed;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 2px 2px #4c1d95;
+        }
+
+        .btn:hover {
+            background-color: #7c3aed;
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2"></script>
+</head>
+
+<body>
+    <div class="gift-wrap" id="giftWrap">
+        <div class="ribbon"></div>
+        <img class="bow" src="blueribbon.png" alt="Bow">
+    </div>
+
+    <div class="container" id="content">
+        <h1>HAPPY BDAY MAMA 🎉</h1>
+
+        <img class="cake" src="bluecake.png" alt="Birthday Cake">
+
+        <p>
+Mama, you are finally 47 mashaAllah!! May Allah grant you a long, healthy, and righteous life upon deen, ameen. We love you so much mama, and we can't wait to spend the rest of our life being your good kids.
+        </p>
+
+        <div class="ps-note">
+P.S - we hope you enjoyed your day out today, it was really fun spending time as a family especially on your birthday &lt;3
+        </div>
+
+        <br>
+
+        <button class="btn" onclick="startConfetti()">
+            Click for confetti!
+        </button>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById("giftWrap").style.transform = "scale(0)";
+            document.getElementById("content").style.display = "block";
+        }, 2000);
+
+        function startConfetti() {
+            confetti({
+                particleCount: 120,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: [
+                    '#c4b5fd',
+                    '#a78bfa',
+                    '#ddd6fe',
+                    '#ffffff'
+                ]
+            });
+        }
+    </script>
+</body>
+</html>
